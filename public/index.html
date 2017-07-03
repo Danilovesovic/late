@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+<head>
+	<meta charset="UTF-8">
+	<title>ToDo App</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/mainController.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<a href="/" class="navbar-brand">MongoToDo App</a>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+			<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="input-group">
+					<input type="text" placeholder="new todo" class="form-control" ng-model="newTodo">
+					<div class="input-group-btn">
+						<button class="btn btn-primary" ng-click="addNewTodo()">Add</button>
+					</div>
+				</div>				
+			</div>
+			</div><br><br><br>
+				<div class="row">
+					<div class="col-xs-6" ng-repeat="todo in data">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4>Task no: {{$index + 1}}</h4>
+							</div>
+							<div class="panel-body text-center">
+								<h3>{{todo.msg}}</h3>
+							</div>
+							<div class="panel-footer text-right">
+								<button class="btn btn-danger" ng-click="deleteTodo(todo._id)">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
